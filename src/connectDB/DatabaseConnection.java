@@ -6,64 +6,36 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-  private static DatabaseConnection instance;
-  private Connection connection;
+  private static DatabaseConnection instance = new DatabaseConnection();
+  private Connection con;
 
  
   private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=quanly_Cafe;encrypt=true;trustServerCertificate=true";
   private static final String USER = "sa";
   private static final String PASSWORD = "sapassword165";
 
-
-  private DatabaseConnection() throws SQLException{
-      try {
-          Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-      } catch (ClassNotFoundException e) {
-          e.printStackTrace();
-      }
-  }
-
- 
-  public static DatabaseConnection getInstance() throws SQLException{
-      if (instance == null) {
-          instance = new DatabaseConnection();
-      }
+  public static DatabaseConnection getInstance(){
       return instance;
   }
 
-
   public Connection getConnection() throws SQLException {
-      if (connection == null || connection.isClosed()) {
+      if (con == null || con.isClosed()) {
           try {
-              connection = DriverManager.getConnection(URL, USER, PASSWORD);
+              con = DriverManager.getConnection(URL, USER, PASSWORD);
           } catch (SQLException e) {
-              System.err.println("Error connecting to database: " + e.getMessage());
-              throw e;
+              e.printStackTrace();
           }
       }
-      return connection;
+      return con;
   }
-
 
   public void closeConnection() {
-      if (connection != null) {
+      if (con != null) {
           try {
-              connection.close();
-              System.out.println("Database connection closed");
+              con.close();
           } catch (SQLException e) {
-              System.err.println("Error closing connection: " + e.getMessage());
+              e.printStackTrace();
           }
-      }
-  }
-
-
-  public boolean testConnection() {
-      try {
-          getConnection();
-          return !connection.isClosed();
-      } catch (SQLException e) {
-          System.err.println("Connection test failed: " + e.getMessage());
-          return false;
       }
   }
 }

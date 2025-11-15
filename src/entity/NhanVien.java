@@ -11,9 +11,10 @@ public class NhanVien {
 	private String soDienThoai;
 	private LocalDateTime ngayVaoLam;
 	private ChucVu chucVu;
+	private String email;
 
 	public NhanVien(String maNhanVien, String hoTen, double luong, String soDienThoai, LocalDateTime ngayVaoLam,
-			ChucVu chucVu) {
+			ChucVu chucVu, String email) {
 		super();
 		this.maNhanVien = maNhanVien;
 		this.hoTen = hoTen;
@@ -21,6 +22,7 @@ public class NhanVien {
 		this.soDienThoai = soDienThoai;
 		this.ngayVaoLam = ngayVaoLam;
 		this.chucVu = chucVu;
+		this.email = email;
 	}
 
 	public NhanVien() {
@@ -77,6 +79,15 @@ public class NhanVien {
 	public void setChucVu(ChucVu chucVu) {
 		this.chucVu = chucVu;
 	}
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	@Override
 	public int hashCode() {
@@ -98,8 +109,7 @@ public class NhanVien {
 	@Override
 	public String toString() {
 		return "NhanVien [maNhanVien=" + maNhanVien + ", hoTen=" + hoTen + ", luong=" + luong + ", soDienThoai="
-				+ soDienThoai + ", ngayVaoLam=" + ngayVaoLam + ", chucVu=" + chucVu + "]";
+				+ soDienThoai + ", ngayVaoLam=" + ngayVaoLam + ", chucVu=" + chucVu + ", email=" + email + "]";
 	}
 
-	
 }
