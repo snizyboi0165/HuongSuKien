@@ -167,7 +167,7 @@ INSERT INTO TaiKhoan (MaTaiKhoan, TenDangNhap, MatKhau, MaNhanVien, MaChucVu) VA
 ('TK009', 'nv009lan', '123456', 'NV009', 'NV'),
 ('TK010', 'nv010minh', '123456', 'NV010', 'NV'),
 ('TK011', 'nv011nga', '123456', 'NV011', 'NV'),
-('TK0Note: Cột `Email` (trong `NhanVien`) và `DieuKienApDung` (trong `KhuyenMai`) bạn để `NULL` (cho phép rỗng). Nếu bạn muốn chúng là `NOT NULL` (bắt buộc), bạn cần sửa lại code Java để luôn truyền giá trị cho chúng.12', 'nv012phuc', '123456', 'NV012', 'NV'),
+('TK012', 'nv012phuc', '123456', 'NV012', 'NV'),
 ('TK013', 'nv013quyen', '123456', 'NV013', 'NV'),
 ('TK014', 'nv014son', '123456', 'NV014', 'NV'),
 ('TK015', 'nv015tham', '123456', 'NV015', 'NV');
